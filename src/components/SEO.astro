@@ -8,14 +8,14 @@ interface Props {
 }
 
 const {
-  title = "Apex Services — Trusted Local & Regional Digital Solutions",
+  title = "Millennium Dev Labs — High-Velocity Web & Cloud Engineering",
   description = "Empowering regional businesses with transformative cloud infrastructure, high-velocity websites, mobile apps, and dedicated technical care.",
   image = "/og-image.png",
   canonicalURL = Astro.url.href,
   type = "website"
 } = Astro.props;
 
-const siteTitle = title.includes("Apex Services") ? title : `${title} | Apex Services`;
+const siteTitle = title.includes("Millennium Dev Labs") ? title : `${title} | Millennium Dev Labs`;
 ---
 
 <!-- Global Metadata -->
@@ -54,7 +54,7 @@ const siteTitle = title.includes("Apex Services") ? title : `${title} | Apex Ser
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Apex Services",
+  "name": "Millennium Dev Labs",
   "image": image,
   "description": description,
   "address": {
