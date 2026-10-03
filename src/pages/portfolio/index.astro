@@ -1,0 +1,95 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PortfolioCard from '../../components/PortfolioCard.astro';
+import { portfolioItems } from '../../data/portfolio';
+
+const categories = ["All", "Infrastructure", "Security", "Web Platforms", "Mobile Apps", "Portfolios"];
+---
+
+<Layout
+  title="Featured Projects & Case Studies — Apex Services"
+  description="Explore our track record of enterprise deployments, high-performance web platforms, and mobile apps."
+>
+  <!-- Hero Banner -->
+  <section class="relative w-full bg-[#0F172A] text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#dae2fd_1px,transparent_1px)] [background-size:20px_20px]"></div>
+    <div class="absolute right-0 top-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10 flex flex-col gap-4">
+      <nav class="flex items-center gap-2 text-xs font-semibold text-slate-400">
+        <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <span class="text-white">Portfolio</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">
+          Proven Results
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mt-1 mb-4">
+          Featured Engineering Case Studies
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+          Deep dives into real-world deployments, infrastructure modernizations, and customer conversion results.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Grid Section with Client-Side Filter -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <!-- Category Filter Buttons -->
+    <div class="flex flex-wrap items-center gap-2 mb-10" id="filter-bar">
+      {categories.map((cat, idx) => (
+        <button
+          class={`filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+            idx === 0
+              ? 'bg-emerald-500 text-white shadow-sm'
+              : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
+          }`}
+          data-category={cat}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="portfolio-grid">
+      {portfolioItems.map(project => (
+        <div class="project-item" data-category={project.category}>
+          <PortfolioCard project={project} />
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('.project-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selected = btn.getAttribute('data-category');
+
+      // Update active button state
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-emerald-500', 'text-white', 'shadow-sm');
+        b.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-600');
+      });
+      btn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-600');
+      btn.classList.add('bg-emerald-500', 'text-white', 'shadow-sm');
+
+      // Filter project items
+      projectItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        if (selected === 'All' || itemCategory === selected) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

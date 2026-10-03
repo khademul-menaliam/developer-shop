@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../data/pageContent';
+---
+
+<Layout
+  title="Terms & Conditions — Apex Services"
+  description="Terms and conditions governing web development, hosting configurations, and technical services provided by Apex Services."
+>
+  <section class="relative w-full bg-[#0F172A] text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10 flex flex-col gap-2">
+      <nav class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-2">
+        <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <span class="text-white">Terms of Service</span>
+      </nav>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Terms &amp; Conditions
+      </h1>
+      <p class="text-xs text-slate-400">Last Updated: October 2026</p>
+    </div>
+  </section>
+
+  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full text-slate-700 text-sm leading-relaxed space-y-8 bg-white border border-slate-200 rounded-2xl my-10 p-8 shadow-sm">
+    <div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">1. Scope of Engagement</h2>
+      <p>
+        Apex Services provides custom web application development, portfolio website design, mobile applications, cloud deployment, and system maintenance according to written project proposals and milestone specifications.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">2. Code Ownership &amp; Intellectual Property</h2>
+      <p>
+        Upon final project settlement and milestone sign-off, the client retains 100% full ownership of their custom website codebase, custom graphics, database records, and proprietary design tokens.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">3. Hosting &amp; Server Infrastructure</h2>
+      <p>
+        For projects utilizing third-party hosting platforms (such as Vercel, Supabase, Cloudinary, or custom VPS), the client complies with the respective terms of service of those underlying cloud infrastructure providers.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">4. Limitation of Liability</h2>
+      <p>
+        Apex Services engineers production-grade software adhering to modern security and reliability standards. We are not liable for business interruptions arising from external upstream network outages or third-party credential compromises.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">5. Inquiries &amp; Support</h2>
+      <p>
+        For official contractual correspondence, reach us at <a href={`mailto:${siteConfig.email}`} class="text-emerald-600 font-bold underline">{siteConfig.email}</a>.
+      </p>
+    </div>
+  </section>
+</Layout>

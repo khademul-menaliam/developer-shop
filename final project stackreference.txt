@@ -1,0 +1,428 @@
+# Project Technology Stack & Architecture
+
+## 1. Core Stack
+
+| Technology       | Purpose                                                 |
+| ---------------- | ------------------------------------------------------- |
+| **Astro**        | Main frontend, public website, and admin dashboard      |
+| **Tailwind CSS** | UI styling and responsive design                        |
+| **Supabase**     | Backend services, database, and admin authentication    |
+| **PostgreSQL**   | Store website content, services, and customer inquiries |
+| **Cloudinary**   | Image and media storage                                 |
+| **Vercel**       | Production hosting and deployment                       |
+| **GitHub**       | Source code and version control                         |
+
+---
+
+## 2. Public Website — Astro
+
+Astro will be used to build the customer-facing website.
+
+### Pages
+
+* Home
+* About
+* Services
+* Service Details
+* Contact
+* Booking / Service Inquiry
+* Privacy Policy
+* Terms & Conditions
+* Other required informational pages
+
+### Requirements
+
+* Responsive design
+* SEO-friendly pages
+* Fast loading
+* Semantic HTML
+* Dynamic service content
+* Dynamic images from Cloudinary
+* Inquiry/booking form
+
+---
+
+## 3. Admin Dashboard — Astro
+
+The admin dashboard will be part of the same Astro project.
+
+### Admin Pages
+
+* `/admin/login`
+* `/admin`
+* `/admin/pages`
+* `/admin/services`
+* `/admin/inquiries`
+* `/admin/media`
+* `/admin/settings`
+
+### Admin capabilities
+
+#### Dashboard
+
+* Overview
+* Recent inquiries
+* Basic statistics
+
+#### Page Content
+
+Admin can update editable website content such as:
+
+* Home page content
+* Hero title/subtitle
+* Hero image
+* About content
+* CTA sections
+* Contact information
+* Social links
+* Other editable sections
+
+#### Services
+
+Admin can:
+
+* Add service
+* Edit service
+* Delete service
+* Enable/disable service
+* Change service title
+* Change description
+* Upload/change service image
+* Manage service details
+
+#### Inquiries
+
+Admin can:
+
+* View all inquiries
+* Search inquiries
+* View customer details
+* View requested service
+* View customer message
+* View submission date/time
+* Contact the customer directly by phone/email
+
+**No customer account and no customer login.**
+
+**No built-in admin response/status workflow is required.**
+
+---
+
+## 4. Supabase — Backend
+
+Supabase will provide the backend infrastructure.
+
+### Supabase responsibilities
+
+* PostgreSQL database
+* Admin authentication
+* Database security
+* Row Level Security (RLS)
+* Server-side data access where required
+
+### Customer
+
+Customers do **not** need Supabase accounts.
+
+They simply submit an inquiry.
+
+### Admin
+
+Only authorized administrators can access:
+
+```text
+/admin/*
+```
+
+---
+
+## 5. Database — PostgreSQL
+
+Supabase PostgreSQL will store the application's structured data.
+
+### Main tables
+
+#### `services`
+
+```text
+id
+title
+slug
+short_description
+description
+image_url
+is_active
+sort_order
+created_at
+updated_at
+```
+
+#### `inquiries`
+
+```text
+id
+customer_name
+phone
+email
+service_id
+message
+preferred_date
+created_at
+updated_at
+```
+
+#### `page_contents`
+
+Used for editable website content.
+
+```text
+id
+page
+section
+content
+image_url
+updated_at
+```
+
+Additional tables can be introduced when a real requirement exists.
+
+---
+
+## 6. Cloudinary — Media Storage
+
+Cloudinary will handle website images and media.
+
+### Use Cloudinary for
+
+* Hero images
+* Service images
+* About page images
+* Gallery images
+* Banner images
+* Other uploaded website media
+
+### Flow
+
+```text
+Admin
+  ↓
+Upload image
+  ↓
+Cloudinary
+  ↓
+Cloudinary URL
+  ↓
+Supabase stores URL
+  ↓
+Astro displays image
+```
+
+**Do not store large image files directly in PostgreSQL.**
+
+---
+
+## 7. Vercel — Hosting
+
+Vercel will host the production Astro application.
+
+### Responsibilities
+
+* Production deployment
+* HTTPS
+* Domain connection
+* Environment variables
+* Build/deployment automation
+* GitHub integration
+
+---
+
+## 8. GitHub — Source Control
+
+GitHub will contain the complete project source code.
+
+### Use it for
+
+* Version control
+* Feature branches
+* Pull requests
+* Deployment integration
+* Project history
+* Backup of source code
+
+---
+
+## 9. Customer Flow
+
+```text
+Customer
+   ↓
+Visit Website
+   ↓
+Browse Services
+   ↓
+Select Service
+   ↓
+Submit Inquiry
+   ↓
+Supabase Database
+   ↓
+Admin Dashboard
+   ↓
+Admin views customer details
+   ↓
+Admin contacts customer directly
+```
+
+---
+
+## 10. Content Management Flow
+
+```text
+Admin Login
+   ↓
+Admin Dashboard
+   ↓
+Edit Website Content
+   ↓
+Supabase
+   ↓
+Astro Website
+   ↓
+Updated content appears on website
+```
+
+For images:
+
+```text
+Admin
+   ↓
+Cloudinary Upload
+   ↓
+Image URL
+   ↓
+Supabase
+   ↓
+Website
+```
+
+---
+
+## 11. SEO
+
+Astro will be configured for SEO.
+
+### Include
+
+* Page titles
+* Meta descriptions
+* Canonical URLs
+* Open Graph metadata
+* Proper heading structure
+* Semantic HTML
+* Image alt text
+* XML sitemap
+* `robots.txt`
+* Clean URLs
+* Internal linking
+* Structured data where appropriate
+* Fast page loading
+* Mobile-friendly pages
+
+Editable SEO fields can also be managed from the admin panel where required.
+
+---
+
+## 12. Authentication
+
+Only the admin requires authentication.
+
+```text
+Customer
+   ↓
+No login required
+
+Admin
+   ↓
+/admin/login
+   ↓
+Supabase Auth
+   ↓
+Admin Dashboard
+```
+
+Customer passwords/accounts will not be implemented unless the requirements change.
+
+---
+
+## 13. Environment Variables
+
+Secrets must remain in environment variables and **must not be committed to GitHub or exposed in frontend source code**.
+
+Examples:
+
+```text
+PUBLIC_SUPABASE_URL
+PUBLIC_SUPABASE_ANON_KEY
+
+SUPABASE_SERVICE_ROLE_KEY
+
+CLOUDINARY_CLOUD_NAME
+CLOUDINARY_API_KEY
+CLOUDINARY_API_SECRET
+```
+
+Only values that are explicitly safe for browser exposure should use Astro's `PUBLIC_` prefix.
+
+---
+
+# Final Architecture
+
+```text
+                    ┌─────────────────────┐
+                    │      Customers      │
+                    └──────────┬──────────┘
+                               │
+                               ↓
+                    ┌─────────────────────┐
+                    │        Astro        │
+                    │    Public Website   │
+                    └──────────┬──────────┘
+                               │
+                       Inquiry Submission
+                               │
+                               ↓
+                    ┌─────────────────────┐
+                    │      Supabase       │
+                    │ PostgreSQL + Auth    │
+                    └──────────┬──────────┘
+                               │
+                               ↓
+                    ┌─────────────────────┐
+                    │   Admin Dashboard   │
+                    │       /admin        │
+                    │       Astro         │
+                    └─────────────────────┘
+
+                    ┌─────────────────────┐
+                    │     Cloudinary      │
+                    │    Images / Media   │
+                    └─────────────────────┘
+
+                    ┌─────────────────────┐
+                    │       Vercel        │
+                    │       Hosting       │
+                    └─────────────────────┘
+
+                    ┌─────────────────────┐
+                    │       GitHub        │
+                    │    Source Control   │
+                    └─────────────────────┘
+```
+
+## Development Rule
+
+The project should be developed according to this stack and architecture.
+
+**Do not introduce additional frameworks, backend servers, CMS platforms, authentication systems, databases, or third-party services unless a concrete project requirement requires them.**
+
+The architecture should remain simple, maintainable, SEO-friendly, responsive, and production-ready.

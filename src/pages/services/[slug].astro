@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+import { services } from '../../data/services';
+import { portfolioItems } from '../../data/portfolio';
+
+export function getStaticPaths() {
+  return services.map(service => ({
+    params: { slug: service.slug },
+    props: { service }
+  }));
+}
+
+const { service } = Astro.props;
+
+const relatedProjects = portfolioItems.filter(p => 
+  p.category.toLowerCase().includes(service.title.toLowerCase().split(' ')[0]) || p.featured
+).slice(0, 2);
+---
+
+<Layout
+  title={`${service.title} — Capabilities | Apex Services`}
+  description={service.short_description}
+  image={service.image_url}
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-[#0F172A] text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#dae2fd_1px,transparent_1px)] [background-size:20px_20px]"></div>
+    <div class="absolute right-0 top-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10 flex flex-col gap-4">
+      <nav class="flex items-center gap-2 text-xs font-semibold text-slate-400">
+        <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <a href="/services" class="hover:text-emerald-400 transition-colors">Services</a>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <span class="text-white">{service.title}</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-bold mb-3 border border-emerald-500/30">
+          <span class="material-symbols-outlined text-[16px]">{service.icon}</span>
+          <span>{service.target_audience}</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mt-1 mb-4">
+          {service.title}
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+          {service.short_description}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content & Booking Grid -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <!-- Main Content (7 cols) -->
+      <div class="lg:col-span-7 flex flex-col gap-10">
+        <!-- Deep Description -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+          <h2 class="text-xl font-bold text-slate-900 tracking-tight mb-4">Overview & Scope</h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+
+        <!-- Deliverables Checklist -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+          <h2 class="text-xl font-bold text-slate-900 tracking-tight mb-4">What You Receive</h2>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {service.deliverables.map(del => (
+              <li class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs sm:text-sm text-slate-700 font-medium">
+                <span class="material-symbols-outlined text-emerald-500 text-[18px] shrink-0 mt-0.5">check_circle</span>
+                <span>{del}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Key Feature Highlights -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+          <h2 class="text-xl font-bold text-slate-900 tracking-tight mb-4">Core Specifications</h2>
+          <div class="space-y-3">
+            {service.features.map(feat => (
+              <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-700">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>{feat}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Related Case Studies -->
+        {relatedProjects.length > 0 && (
+          <div class="flex flex-col gap-4">
+            <h2 class="text-xl font-bold text-slate-900 tracking-tight">Proven In Production</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {relatedProjects.map(proj => (
+                <a
+                  href={`/portfolio/${proj.slug}`}
+                  class="bg-white border border-slate-200 p-4 rounded-xl hover:border-emerald-500 hover:shadow-md transition-all flex flex-col justify-between group"
+                >
+                  <span class="text-xs font-bold text-emerald-600 mb-1">{proj.category}</span>
+                  <h4 class="text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition-colors mb-2">
+                    {proj.title}
+                  </h4>
+                  <span class="text-xs font-semibold text-slate-500 inline-flex items-center gap-1 mt-auto">
+                    <span>View Case Study</span>
+                    <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <!-- Right Column: Booking / Inquiry Card (5 cols) -->
+      <div class="lg:col-span-5 sticky top-24">
+        <div class="flex flex-col gap-6">
+          <!-- Price Badge Card -->
+          <div class="bg-[#0F172A] text-white p-6 rounded-2xl border border-slate-800 shadow-md">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Target Investment</span>
+            <div class="flex items-baseline gap-2 mt-1">
+              <span class="text-3xl font-extrabold text-white">{service.starting_price || "Custom Quote"}</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-2">
+              Flexible milestone packages. Zero hidden maintenance fees.
+            </p>
+          </div>
+
+          <!-- Direct Inquiry Form -->
+          <div>
+            <div class="mb-3">
+              <h3 class="text-lg font-bold text-slate-900">Inquire About This Service</h3>
+              <p class="text-xs text-slate-500">Submit your project details below to receive a proposal.</p>
+            </div>
+            <InquiryForm selectedService={service.title} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

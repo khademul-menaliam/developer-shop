@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StatsCounter from '../components/StatsCounter.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import { testimonials, siteConfig } from '../data/pageContent';
+
+const principles = [
+  {
+    icon: 'bolt',
+    title: 'Zero Bloat & Peak Speed',
+    description: 'We reject heavy CMS bloat and bloated page builders. Every line of code is structured for sub-second load times and 100/100 Lighthouse performance.'
+  },
+  {
+    icon: 'handshake',
+    title: 'Direct Developer Partnership',
+    description: 'No middle managers or robotic ticket queues. You collaborate directly with senior engineers who understand your business model and technical requirements.'
+  },
+  {
+    icon: 'savings',
+    title: 'Budget & Cost Transparency',
+    description: 'We believe premium engineering shouldn’t come with exorbitant recurring server costs. We leverage modern free-tier serverless ecosystems where feasible.'
+  },
+  {
+    icon: 'security',
+    title: 'Security & Complete Ownership',
+    description: 'You own 100% of your source code, database records, and intellectual property. We build with PostgreSQL Row Level Security from Day 1.'
+  }
+];
+
+const techStack = [
+  { name: 'Astro', purpose: 'Blazing-fast content-driven frontends with zero unnecessary JS' },
+  { name: 'Tailwind CSS', purpose: 'Precision utility design and dynamic responsive interfaces' },
+  { name: 'Supabase & PostgreSQL', purpose: 'Secure relational database, instant APIs & Row Level Security' },
+  { name: 'Cloudinary', purpose: 'Optimized global media CDN delivery and automatic format conversion' },
+  { name: 'Vercel Edge', purpose: 'Sub-millisecond global CDN hosting with automated GitHub deployments' }
+];
+---
+
+<Layout
+  title="About Apex Services — Precision Web & Cloud Engineering"
+  description="Learn about our mission, engineering principles, and how we empower regional businesses with high-performance web systems."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-[#0F172A] text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#dae2fd_1px,transparent_1px)] [background-size:20px_20px]"></div>
+    <div class="absolute right-0 top-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10 flex flex-col gap-4">
+      <nav class="flex items-center gap-2 text-xs font-semibold text-slate-400">
+        <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <span class="text-white">About Us</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">
+          Our Philosophy
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mt-1 mb-4">
+          Architected for Stability, Built for Scale
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+          Apex Services was founded with a singular purpose: to give regional businesses, consultants, and enterprises world-class web engineering without agency bureaucracy or inflated overhead.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story & Mission Grid -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="flex flex-col gap-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">
+            Who We Are
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
+            Engineering Digital Trust for Local & Global Markets
+          </h2>
+        </div>
+
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          Based in Dhaka, Bangladesh, we serve both forward-thinking regional companies and international clients who demand exceptional quality, clean code, and rock-solid uptime.
+        </p>
+
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          Whether you need a sleek $0/mo hosted portfolio to capture local WhatsApp leads or a high-throughput industrial platform syncing multi-branch operations, we apply the exact same standard of rigor and precision.
+        </p>
+
+        <div class="flex items-center gap-4 pt-2">
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+            <span class="text-2xl font-extrabold text-slate-900 block">100%</span>
+            <span class="text-xs text-slate-500 font-medium">On-Time Delivery</span>
+          </div>
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+            <span class="text-2xl font-extrabold text-emerald-600 block">&lt; 2 Hrs</span>
+            <span class="text-xs text-slate-500 font-medium">Inquiry Response</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Visual Card -->
+      <div class="bg-[#0F172A] p-8 rounded-3xl text-white relative overflow-hidden shadow-xl border border-slate-800">
+        <div class="absolute -top-10 -right-10 w-60 h-60 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="flex flex-col gap-6 relative z-10">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[26px]">terminal</span>
+          </div>
+
+          <h3 class="text-xl font-bold text-white tracking-tight">
+            Our Architectural Commitments
+          </h3>
+
+          <ul class="space-y-4 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-emerald-400 text-[20px] shrink-0 mt-0.5">verified</span>
+              <span><strong>Production-Grade Simplicity:</strong> No convoluted setups that break when dependencies update.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-emerald-400 text-[20px] shrink-0 mt-0.5">verified</span>
+              <span><strong>SEO & Accessibility:</strong> Native HTML5 semantic tags, OpenGraph schemas, and rapid mobile performance.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-emerald-400 text-[20px] shrink-0 mt-0.5">verified</span>
+              <span><strong>Total Data Privacy:</strong> Customer inquiries and backend records are isolated with PostgreSQL security policies.</span>
+            </li>
+          </ul>
+
+          <div class="pt-2">
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold px-5 h-10 rounded-xl transition-all shadow-md shadow-emerald-500/20"
+            >
+              <span>Schedule an Introduction</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Statistics Counter -->
+  <StatsCounter />
+
+  <!-- Core Principles Grid -->
+  <section class="py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 border-y border-slate-200/80">
+    <div class="max-w-7xl mx-auto flex flex-col gap-12">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">
+          Core Values
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
+          How We Work & What We Stand For
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {principles.map(p => (
+          <div class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 hover:border-emerald-500/40 hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <span class="material-symbols-outlined text-[22px]">{p.icon}</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 tracking-tight">{p.title}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">{p.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack Breakdown -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">
+        Engineered with Modern Tools
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
+        Our Production Technology Stack
+      </h2>
+      <p class="text-sm text-slate-600 mt-2">
+        Curated for speed, zero vendor lock-in, and flawless long-term maintainability.
+      </p>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+      <div class="divide-y divide-slate-100">
+        {techStack.map(t => (
+          <div class="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-slate-50 transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="text-base font-bold text-slate-900">{t.name}</span>
+            </div>
+            <span class="text-xs sm:text-sm text-slate-600 sm:text-right">{t.purpose}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 border-t border-slate-200/80">
+    <div class="max-w-7xl mx-auto flex flex-col gap-12">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">
+          Reputation
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
+          Client Feedback
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        {testimonials.map(testimonial => (
+          <TestimonialCard testimonial={testimonial} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,87 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { portfolioItems } from '../../data/portfolio';
+import { services } from '../../data/services';
+
+const mediaAssets = [
+  ...portfolioItems.map(p => ({ title: p.title, url: p.image_url, type: 'Case Study Image' })),
+  ...services.map(s => ({ title: s.title, url: s.image_url, type: 'Service Banner' }))
+];
+---
+
+<AdminLayout title="Media Library" activeTab="media">
+  <div class="flex flex-col gap-6">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Cloudinary Media Manager</h2>
+        <p class="text-xs text-slate-400 mt-1">
+          Upload and manage website images. Optimized for CDN distribution with zero database load.
+        </p>
+      </div>
+
+      <button
+        type="button"
+        onclick="alert('Cloudinary upload widget will activate in Phase 2 with API keys.');"
+        class="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-bold rounded-xl transition-colors shadow-sm flex items-center gap-1.5 self-start sm:self-auto"
+      >
+        <span class="material-symbols-outlined text-[18px]">cloud_upload</span>
+        <span>Upload to Cloudinary</span>
+      </button>
+    </div>
+
+    <!-- Upload Dropzone Mockup -->
+    <div class="bg-[#0F172A] border-2 border-dashed border-slate-700 hover:border-emerald-500/60 rounded-2xl p-8 text-center flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors">
+      <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-1">
+        <span class="material-symbols-outlined text-[28px]">upload_file</span>
+      </div>
+      <span class="text-sm font-bold text-white">Drag &amp; drop images here, or click to browse</span>
+      <span class="text-xs text-slate-500">Supports PNG, JPG, WebP, SVG up to 10MB (Automatically converted to WebP on Cloudinary)</span>
+    </div>
+
+    <!-- Media Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {mediaAssets.map((asset) => (
+        <div class="bg-[#0F172A] border border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between group">
+          <div class="w-full h-40 bg-slate-900 overflow-hidden relative">
+            <img
+              src={asset.url}
+              alt={asset.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+            <span class="absolute top-2 left-2 px-2 py-0.5 rounded text-[10px] font-bold bg-slate-950/80 text-emerald-400">
+              {asset.type}
+            </span>
+          </div>
+
+          <div class="p-4 flex flex-col gap-2">
+            <h4 class="text-xs font-bold text-white truncate" title={asset.title}>
+              {asset.title}
+            </h4>
+
+            <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
+              <button
+                type="button"
+                onclick={`navigator.clipboard.writeText('${asset.url}'); alert('Image URL copied to clipboard!');`}
+                class="text-[11px] text-emerald-400 hover:underline flex items-center gap-1 font-semibold"
+              >
+                <span class="material-symbols-outlined text-[14px]">content_copy</span>
+                <span>Copy URL</span>
+              </button>
+
+              <button
+                type="button"
+                onclick="alert('Delete asset trigger.');"
+                class="text-slate-500 hover:text-red-400 text-xs transition-colors"
+                title="Delete"
+              >
+                <span class="material-symbols-outlined text-[16px]">delete</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</AdminLayout>

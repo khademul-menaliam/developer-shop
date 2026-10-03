@@ -1,0 +1,117 @@
+---
+import { siteConfig } from '../data/pageContent';
+import { services } from '../data/services';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full bg-[#0F172A] text-slate-300 border-t border-slate-800 pt-16 pb-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
+      <!-- Brand & Mission Column (2 Cols) -->
+      <div class="lg:col-span-2 flex flex-col space-y-4">
+        <a href="/" class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+            <span class="material-symbols-outlined text-[20px]">terminal</span>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-white">{siteConfig.name}</span>
+        </a>
+        <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+          {siteConfig.description}
+        </p>
+        <div class="flex items-center gap-2 text-xs text-emerald-400 font-medium pt-1">
+          <span class="material-symbols-outlined text-[16px]">location_on</span>
+          <span>{siteConfig.location}</span>
+        </div>
+        <div class="flex items-center gap-3 pt-2">
+          <a
+            href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^0-9]/g, '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 hover:border-emerald-500 hover:text-emerald-400 flex items-center justify-center text-slate-300 transition-colors"
+            aria-label="WhatsApp"
+          >
+            <span class="material-symbols-outlined text-[18px]">chat</span>
+          </a>
+          <a
+            href={`mailto:${siteConfig.email}`}
+            class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 hover:border-emerald-500 hover:text-emerald-400 flex items-center justify-center text-slate-300 transition-colors"
+            aria-label="Email"
+          >
+            <span class="material-symbols-outlined text-[18px]">mail</span>
+          </a>
+          <a
+            href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, '')}`}
+            class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 hover:border-emerald-500 hover:text-emerald-400 flex items-center justify-center text-slate-300 transition-colors"
+            aria-label="Phone"
+          >
+            <span class="material-symbols-outlined text-[18px]">call</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services Column -->
+      <div class="flex flex-col space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Capabilities</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          {services.slice(0, 5).map(service => (
+            <li>
+              <a href={`/services/${service.slug}`} class="hover:text-emerald-400 transition-colors">
+                {service.title}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a href="/services" class="text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs font-semibold pt-1">
+              View All Capabilities &rarr;
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Navigation & Company -->
+      <div class="flex flex-col space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Explore</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="/about" class="hover:text-emerald-400 transition-colors">About Apex</a></li>
+          <li><a href="/portfolio" class="hover:text-emerald-400 transition-colors">Featured Projects</a></li>
+          <li><a href="/contact" class="hover:text-emerald-400 transition-colors">Direct Contact</a></li>
+          <li><a href="/booking" class="hover:text-emerald-400 transition-colors">Service Inquiry</a></li>
+          <li><a href="/admin/login" class="hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-300"><span class="material-symbols-outlined text-[14px]">lock</span> Admin Portal</a></li>
+        </ul>
+      </div>
+
+      <!-- Direct Contact Column -->
+      <div class="flex flex-col space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Get In Touch</h4>
+        <div class="space-y-2 text-sm text-slate-400">
+          <p class="text-xs text-slate-500 font-semibold uppercase">Direct Telephone</p>
+          <a href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, '')}`} class="text-white font-medium hover:text-emerald-400 transition-colors block">
+            {siteConfig.phoneDisplay}
+          </a>
+
+          <p class="text-xs text-slate-500 font-semibold uppercase pt-2">Email Inquiries</p>
+          <a href={`mailto:${siteConfig.email}`} class="text-slate-300 hover:text-emerald-400 transition-colors block">
+            {siteConfig.email}
+          </a>
+
+          <p class="text-xs text-slate-500 font-semibold uppercase pt-2">Hours of Operation</p>
+          <p class="text-xs text-slate-400">{siteConfig.workingHours}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div>
+        &copy; {currentYear} {siteConfig.name}. All rights reserved. Professional craftsmanship for modern web.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="/privacy" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+        <a href="/terms" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+        <span class="text-slate-600">•</span>
+        <span class="text-slate-400">License #123456</span>
+      </div>
+    </div>
+  </div>
+</footer>

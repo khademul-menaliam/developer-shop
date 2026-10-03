@@ -1,0 +1,98 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { initialInquiries } from '../../data/inquiries';
+---
+
+<AdminLayout title="Customer Inquiries" activeTab="inquiries">
+  <div class="flex flex-col gap-6">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Inquiries &amp; Leads</h2>
+        <p class="text-xs text-slate-400 mt-1">
+          Direct leads submitted by potential clients. Review details and initiate direct WhatsApp or phone communication.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-slate-400 font-medium">{initialInquiries.length} Total Records</span>
+      </div>
+    </div>
+
+    <!-- Inquiries Detailed Grid / Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {initialInquiries.map((inq) => (
+        <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-6 shadow-sm flex flex-col justify-between gap-6 hover:border-slate-700 transition-colors">
+          <div class="flex flex-col gap-4">
+            <!-- Header Row -->
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white">{inq.customer_name}</h3>
+                <span class="text-xs text-emerald-400 font-medium">{inq.service_title || "General Request"}</span>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                {inq.status}
+              </span>
+            </div>
+
+            <!-- Customer Details List -->
+            <div class="space-y-2 text-xs text-slate-300 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-[16px] text-slate-500">mail</span>
+                <span>{inq.email}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-[16px] text-slate-500">call</span>
+                <span class="font-mono">{inq.phone}</span>
+              </div>
+              {inq.budget && (
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-slate-500">payments</span>
+                  <span>Budget: <strong class="text-white">{inq.budget}</strong></span>
+                </div>
+              )}
+              {inq.preferred_date && (
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-slate-500">calendar_today</span>
+                  <span>Target Date: {inq.preferred_date}</span>
+                </div>
+              )}
+            </div>
+
+            <!-- Message Box -->
+            <div class="text-xs text-slate-300 leading-relaxed bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/50">
+              <span class="text-[10px] font-bold uppercase text-slate-500 block mb-1">Customer Brief:</span>
+              “{inq.message}”
+            </div>
+          </div>
+
+          <!-- Bottom Direct Action Buttons -->
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between gap-2">
+            <span class="text-[11px] text-slate-500">
+              {new Date(inq.created_at).toLocaleDateString()}
+            </span>
+
+            <div class="flex items-center gap-2">
+              <a
+                href={`tel:${inq.phone.replace(/[^0-9+]/g, '')}`}
+                class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 transition-colors"
+              >
+                <span class="material-symbols-outlined text-[14px]">call</span>
+                <span>Call</span>
+              </a>
+
+              <a
+                href={`https://wa.me/${inq.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hello ${inq.customer_name}, thank you for your inquiry with Apex Services regarding ${inq.service_title || 'your project'}.`)}`}
+                target="_blank"
+                class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-bold flex items-center gap-1 transition-colors"
+              >
+                <span class="material-symbols-outlined text-[14px]">chat</span>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</AdminLayout>

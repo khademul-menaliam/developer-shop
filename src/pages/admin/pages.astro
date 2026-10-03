@@ -1,0 +1,91 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { siteConfig } from '../../data/pageContent';
+---
+
+<AdminLayout title="Page Content Management" activeTab="pages">
+  <div class="flex flex-col gap-6 max-w-4xl">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Website Content Editor</h2>
+        <p class="text-xs text-slate-400 mt-1">
+          Manage dynamic copy, hero headlines, and company statements (stored in Supabase `page_contents`).
+        </p>
+      </div>
+
+      <button
+        type="button"
+        onclick="alert('Content changes saved! In Phase 2, this commits directly to Supabase PostgreSQL.');"
+        class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-bold rounded-xl transition-colors shadow-sm flex items-center gap-1.5 self-start sm:self-auto"
+      >
+        <span class="material-symbols-outlined text-[18px]">save</span>
+        <span>Save Changes</span>
+      </button>
+    </div>
+
+    <!-- Page Content Tabs / Forms -->
+    <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col gap-6">
+      <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+        <button class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">
+          Home Page
+        </button>
+        <button class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white text-xs font-medium">
+          About Page
+        </button>
+        <button class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white text-xs font-medium">
+          Contact &amp; CTA
+        </button>
+      </div>
+
+      <div class="space-y-5">
+        <!-- Hero Title -->
+        <div class="space-y-1.5">
+          <label class="text-xs font-bold text-slate-300">
+            Hero Section Main Headline
+          </label>
+          <input
+            type="text"
+            value="Empowering Regional Businesses with Apex Performance"
+            class="w-full px-4 h-11 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+          />
+        </div>
+
+        <!-- Hero Subtitle -->
+        <div class="space-y-1.5">
+          <label class="text-xs font-bold text-slate-300">
+            Hero Section Description
+          </label>
+          <textarea
+            rows="3"
+            class="w-full p-4 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+          >We deliver transformative infrastructure, dedicated support, and scalable digital systems designed specifically for regional enterprises looking to dominate their market.</textarea>
+        </div>
+
+        <!-- Tagline -->
+        <div class="space-y-1.5">
+          <label class="text-xs font-bold text-slate-300">
+            Site Subtitle / Tagline
+          </label>
+          <input
+            type="text"
+            value={siteConfig.tagline}
+            class="w-full px-4 h-11 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+          />
+        </div>
+
+        <!-- Company Location Info -->
+        <div class="space-y-1.5">
+          <label class="text-xs font-bold text-slate-300">
+            Footer Location &amp; Region Note
+          </label>
+          <input
+            type="text"
+            value={siteConfig.location}
+            class="w-full px-4 h-11 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</AdminLayout>

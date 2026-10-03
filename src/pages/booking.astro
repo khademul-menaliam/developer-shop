@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+
+const serviceParam = Astro.url.searchParams.get('service') || '';
+const planParam = Astro.url.searchParams.get('plan') || '';
+---
+
+<Layout
+  title="Service Inquiry & Booking — Apex Services"
+  description="Request a project consultation, scope proposal, or service booking with Apex Services."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-[#0F172A] text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#dae2fd_1px,transparent_1px)] [background-size:20px_20px]"></div>
+    <div class="absolute right-0 top-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto relative z-10 flex flex-col gap-4 text-center">
+      <nav class="flex items-center justify-center gap-2 text-xs font-semibold text-slate-400">
+        <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <span class="text-white">Service Inquiry</span>
+      </nav>
+
+      <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">
+        Book a Consultation
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Project Specification &amp; Service Inquiry
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+        Let us know what you are looking to build. We will evaluate your timeline, recommend the optimal stack, and provide a clear quotation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Form Container -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+    <InquiryForm selectedService={serviceParam} selectedPlan={planParam} />
+  </section>
+</Layout>

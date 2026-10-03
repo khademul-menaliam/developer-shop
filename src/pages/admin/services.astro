@@ -1,0 +1,103 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { services } from '../../data/services';
+---
+
+<AdminLayout title="Services Management" activeTab="services">
+  <div class="flex flex-col gap-6">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Services &amp; Capabilities</h2>
+        <p class="text-xs text-slate-400 mt-1">
+          Create, edit, toggle visibility, and update service offerings.
+        </p>
+      </div>
+
+      <button
+        type="button"
+        onclick="alert('Service creation modal will be linked directly to Supabase DB in backend phase.');"
+        class="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-bold rounded-xl transition-colors shadow-sm flex items-center gap-1.5 self-start sm:self-auto"
+      >
+        <span class="material-symbols-outlined text-[18px]">add</span>
+        <span>Add New Service</span>
+      </button>
+    </div>
+
+    <!-- Services Table List -->
+    <div class="bg-[#0F172A] border border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 bg-slate-900/50 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+              <th class="p-4 w-12 text-center">Order</th>
+              <th class="p-4">Service</th>
+              <th class="p-4">Target Audience</th>
+              <th class="p-4">Badge</th>
+              <th class="p-4">Status</th>
+              <th class="p-4 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60 text-xs">
+            {services.map((service, index) => (
+              <tr class="hover:bg-slate-900/40 transition-colors">
+                <td class="p-4 text-center text-slate-500 font-mono">
+                  {index + 1}
+                </td>
+                <td class="p-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                      <span class="material-symbols-outlined text-[18px]">{service.icon}</span>
+                    </div>
+                    <div class="flex flex-col">
+                      <span class="font-bold text-white">{service.title}</span>
+                      <span class="text-[11px] text-slate-400 font-mono">/services/{service.slug}</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="p-4 text-slate-300">
+                  {service.target_audience}
+                </td>
+                <td class="p-4">
+                  {service.badge ? (
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-emerald-400 border border-slate-700">
+                      {service.badge}
+                    </span>
+                  ) : (
+                    <span class="text-slate-600">—</span>
+                  )}
+                </td>
+                <td class="p-4">
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" checked={service.is_active} class="sr-only peer" />
+                    <div class="w-9 h-5 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-500"></div>
+                  </label>
+                </td>
+                <td class="p-4 text-right">
+                  <div class="inline-flex items-center gap-1.5">
+                    <a
+                      href={`/services/${service.slug}`}
+                      target="_blank"
+                      class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+                      title="Preview Page"
+                    >
+                      <span class="material-symbols-outlined text-[16px]">visibility</span>
+                    </a>
+                    <button
+                      type="button"
+                      onclick="alert('Edit service modal ready for Supabase update integration.');"
+                      class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 transition-colors"
+                      title="Edit Service"
+                    >
+                      <span class="material-symbols-outlined text-[16px]">edit</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</AdminLayout>

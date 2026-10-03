@@ -1,0 +1,44 @@
+---
+import { methodologySteps } from '../data/pageContent';
+---
+
+<section class="w-full py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <div class="flex flex-col gap-12">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
+      <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">
+        Structured Execution
+      </span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Our Operational Methodology
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+        A battle-tested 4-stage pipeline built to deliver stability, predictable timelines, and zero guesswork from Day 1.
+      </p>
+    </div>
+
+    <!-- 4 Steps Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+      {methodologySteps.map(step => (
+        <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-4 relative group hover:border-emerald-500/40 hover:shadow-md transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl font-extrabold text-emerald-500 tracking-tight">
+              {step.step}
+            </span>
+            <div class="w-10 h-10 rounded-xl bg-slate-100 group-hover:bg-emerald-50 text-slate-500 group-hover:text-emerald-600 flex items-center justify-center transition-colors">
+              <span class="material-symbols-outlined text-[22px]">{step.icon}</span>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 tracking-tight">
+            {step.title}
+          </h3>
+
+          <p class="text-xs text-slate-600 leading-relaxed">
+            {step.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
