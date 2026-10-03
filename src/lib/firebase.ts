@@ -7,8 +7,8 @@ const firebaseConfig = {
   projectId: "build-your-personal-webpage",
   storageBucket: "build-your-personal-webpage.firebasestorage.app",
   messagingSenderId: "835535854975",
-  appId: "1:835535854975:web:9db7517b5de794e4da0e4a",
-  measurementId: "G-3SWJCYYL6M"
+  appId: "1:835535854975:web:b05493a4419e53dfda0e4a",
+  measurementId: "G-HSLEN15ZLP"
 };
 
 // Initialize Firebase (singleton pattern safe for SSR/Client)
