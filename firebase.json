@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "millenniumdev",
     "public": "dist",
     "ignore": [
       "firebase.json",
