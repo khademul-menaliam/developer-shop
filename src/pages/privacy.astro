@@ -7,10 +7,11 @@ import { siteConfig } from '../data/pageContent';
   title="Privacy Policy — Millennium Dev Labs"
   description="Our privacy policy details how we collect, protect, and handle client inquiries and website data."
 >
-  <section class="relative w-full bg-[#0F172A] text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  <section class="relative w-full bg-slate-950 text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px]"></div>
     <div class="max-w-4xl mx-auto relative z-10 flex flex-col gap-2">
       <nav class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-2">
-        <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
+        <a href="/" class="hover:text-sky-300 transition-colors">Home</a>
         <span class="material-symbols-outlined text-[14px]">chevron_right</span>
         <span class="text-white">Privacy Policy</span>
       </nav>
@@ -21,7 +22,7 @@ import { siteConfig } from '../data/pageContent';
     </div>
   </section>
 
-  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full text-slate-700 text-sm leading-relaxed space-y-8 bg-white border border-slate-200 rounded-2xl my-10 p-8 shadow-sm">
+  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full text-slate-700 text-sm leading-relaxed space-y-8 bg-white border border-slate-200 rounded-3xl my-10 p-8 sm:p-10 shadow-xs">
     <div>
       <h2 class="text-xl font-bold text-slate-900 mb-3">1. Information We Collect</h2>
       <p>
@@ -53,7 +54,7 @@ import { siteConfig } from '../data/pageContent';
     <div>
       <h2 class="text-xl font-bold text-slate-900 mb-3">5. Contact Regarding Privacy</h2>
       <p>
-        If you have any questions about this privacy policy or would like us to remove your submitted inquiry from our database, please contact us at <a href={`mailto:${siteConfig.email}`} class="text-emerald-600 font-bold underline">{siteConfig.email}</a>.
+        If you have any questions about this privacy policy or would like us to remove your submitted inquiry from our database, please contact us at <a href={`mailto:${siteConfig.email}`} class="text-sky-600 font-bold underline">{siteConfig.email}</a>.
       </p>
     </div>
   </section>

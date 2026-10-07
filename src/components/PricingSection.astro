@@ -2,15 +2,15 @@
 import { siteConfig } from '../data/pageContent';
 ---
 
-<section class="w-full bg-slate-50 py-20 px-4 sm:px-6 lg:px-8 border-y border-slate-200/80" id="pricing">
+<section class="w-full bg-slate-50/80 py-20 px-4 sm:px-6 lg:px-8 border-y border-slate-200/80" id="pricing">
   <div class="max-w-7xl mx-auto flex flex-col gap-12">
     <!-- Section Heading -->
     <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
-      <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full w-fit mx-auto border border-emerald-200">
-        Accessible & Flexible
+      <span class="text-xs font-bold text-sky-700 uppercase tracking-widest bg-sky-50 px-3.5 py-1 rounded-full w-fit mx-auto border border-sky-200">
+        Transparent & Flexible
       </span>
       <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
-        Transparent & Budget-Friendly Plans
+        Budget-Friendly Investment Plans
       </h2>
       <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
         We work within your budget. From free cloud-hosted personal portfolios to industrial-grade platforms, we never say no to a great project.
@@ -20,42 +20,42 @@ import { siteConfig } from '../data/pageContent';
     <!-- Pricing 3-Column Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
       <!-- Tier 1: Solo Portfolio ($0/mo) -->
-      <div class="bg-white rounded-3xl border border-slate-200/90 p-7 sm:p-8 shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <div class="bg-white rounded-3xl border border-slate-200 p-7 sm:p-8 shadow-xs flex flex-col justify-between hover:shadow-xl hover:border-sky-300 transition-all duration-300 hover:-translate-y-1">
         <div class="flex flex-col gap-5">
           <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Entry Level</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Entry Level</span>
             <h3 class="text-xl font-bold text-slate-900 tracking-tight mt-1">Solo & Personal Portfolio</h3>
             <p class="text-slate-600 text-xs mt-1">Zero server costs for freelancers, consultants & creators</p>
           </div>
 
           <div class="flex flex-col">
             <div class="flex items-baseline gap-1.5">
-              <span class="text-4xl font-extrabold text-slate-900 tracking-tight">$0</span>
+              <span class="text-4xl font-extrabold text-slate-950 tracking-tight">$0</span>
               <span class="text-xs text-slate-500 font-semibold">/ mo Hosting</span>
             </div>
             <span class="text-[11px] text-slate-400 mt-1 font-medium">(Nominal one-time design setup)</span>
           </div>
 
           <div class="pt-3 border-t border-slate-100">
-            <ul class="space-y-2.5 text-xs text-slate-600 font-medium">
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+            <ul class="space-y-2.5 text-xs text-slate-700 font-medium">
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>100% Free deployment on Vercel / Netlify edge</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>Free database setup on Supabase free tier</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>Custom domain connection & free lifetime SSL</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
-                <span>Fast, mobile-first responsive design (<1s load)</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
+                <span>Fast, mobile-first responsive design (&lt;1s load)</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>Direct WhatsApp & click-to-call integration</span>
               </li>
             </ul>
@@ -65,7 +65,7 @@ import { siteConfig } from '../data/pageContent';
         <div class="pt-6">
           <a
             href="/booking?plan=Solo%20Portfolio"
-            class="w-full inline-flex items-center justify-center border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50 h-11 rounded-xl text-xs font-bold transition-colors shadow-sm"
+            class="w-full inline-flex items-center justify-center border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white h-11 rounded-xl text-xs font-bold transition-all shadow-xs"
           >
             Build My Portfolio
           </a>
@@ -73,45 +73,45 @@ import { siteConfig } from '../data/pageContent';
       </div>
 
       <!-- Tier 2: Small Business & Growth (Featured: Name Your Budget) -->
-      <div class="bg-white rounded-3xl border-2 border-emerald-500 p-7 sm:p-8 shadow-xl flex flex-col justify-between relative hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[11px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full shadow-md">
-          Most Flexible
+      <div class="bg-white rounded-3xl border-2 border-sky-600 p-7 sm:p-8 shadow-xl ring-4 ring-sky-500/10 flex flex-col justify-between relative hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-sky-600 text-white text-[11px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full shadow-md shadow-sky-950/20 border border-sky-400/30">
+          Most Popular
         </div>
 
         <div class="flex flex-col gap-5">
           <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Popular Choice</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Growth Plan</span>
             <h3 class="text-xl font-bold text-slate-900 tracking-tight mt-1">Small Business & Growth</h3>
             <p class="text-slate-600 text-xs mt-1">We match our development scope to your exact budget</p>
           </div>
 
           <div class="flex flex-col">
             <div class="flex items-baseline gap-1">
-              <span class="text-2xl sm:text-3xl font-extrabold text-emerald-600 tracking-tight">Name Your Budget</span>
+              <span class="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">Name Your Budget</span>
             </div>
             <span class="text-[11px] text-slate-500 mt-1 font-medium">Transparent & milestone-based</span>
           </div>
 
           <div class="pt-3 border-t border-slate-100">
-            <ul class="space-y-2.5 text-xs text-slate-600 font-medium">
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+            <ul class="space-y-2.5 text-xs text-slate-700 font-medium">
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>Tailored scope based on what you want to invest</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>Multi-page business website or web catalog</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>Domain, DNS & professional Google Workspace email</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>WhatsApp lead capture & customer inquiry database</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>Hands-off monthly maintenance & security patches</span>
               </li>
             </ul>
@@ -123,7 +123,7 @@ import { siteConfig } from '../data/pageContent';
             href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hello! I would like to propose my project budget for Millennium Dev Labs.')}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full inline-flex items-center justify-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-white h-11 rounded-xl text-xs font-bold transition-all shadow-md shadow-emerald-500/20"
+            class="w-full inline-flex items-center justify-center gap-1.5 bg-sky-600 hover:bg-sky-500 text-white h-11 rounded-xl text-xs font-bold transition-all shadow-md shadow-sky-950/20"
           >
             <span class="material-symbols-outlined text-[16px]">chat</span>
             <span>Propose Your Budget</span>
@@ -132,7 +132,7 @@ import { siteConfig } from '../data/pageContent';
       </div>
 
       <!-- Tier 3: Industrial & Mobile Apps (Custom Quote) -->
-      <div class="bg-white rounded-3xl border border-slate-200/90 p-7 sm:p-8 shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <div class="bg-white rounded-3xl border border-slate-200 p-7 sm:p-8 shadow-xs flex flex-col justify-between hover:shadow-xl hover:border-sky-300 transition-all duration-300 hover:-translate-y-1">
         <div class="flex flex-col gap-5">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Enterprise</span>
@@ -142,32 +142,32 @@ import { siteConfig } from '../data/pageContent';
 
           <div class="flex flex-col">
             <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-extrabold text-slate-900 tracking-tight">Custom</span>
+              <span class="text-4xl font-extrabold text-slate-950 tracking-tight">Custom</span>
               <span class="text-xs text-slate-500 font-semibold">Quote</span>
             </div>
             <span class="text-[11px] text-slate-400 mt-1 font-medium">Tailored enterprise architecture</span>
           </div>
 
           <div class="pt-3 border-t border-slate-100">
-            <ul class="space-y-2.5 text-xs text-slate-600 font-medium">
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+            <ul class="space-y-2.5 text-xs text-slate-700 font-medium">
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>Industrial portals & custom ERP/CRM backends</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>Android & iOS cross-platform mobile apps</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>Scalable PostgreSQL database & custom RESTful APIs</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>Cloudinary image CDN & asset optimization</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="material-symbols-outlined text-[16px] text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-4 h-4 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[12px]">check</span></span>
                 <span>24/7 telemetry monitoring & SLA guaranteed response</span>
               </li>
             </ul>
@@ -177,7 +177,7 @@ import { siteConfig } from '../data/pageContent';
         <div class="pt-6">
           <a
             href="/booking?plan=Industrial%20Custom"
-            class="w-full inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white h-11 rounded-xl text-xs font-bold transition-colors shadow-sm"
+            class="w-full inline-flex items-center justify-center bg-slate-900 hover:bg-sky-600 text-white h-11 rounded-xl text-xs font-bold transition-colors shadow-xs hover:shadow-sky-950/20"
           >
             Request Custom Quote
           </a>
@@ -186,12 +186,12 @@ import { siteConfig } from '../data/pageContent';
     </div>
 
     <!-- Direct Budget Callout Banner -->
-    <div class="bg-white rounded-2xl border border-slate-200/90 p-6 text-center shadow-sm flex flex-col sm:flex-row items-center justify-center gap-3">
-      <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+    <div class="bg-white rounded-3xl border border-slate-200 p-6 text-center shadow-xs flex flex-col sm:flex-row items-center justify-center gap-3">
+      <div class="w-10 h-10 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 border border-sky-100">
         <span class="material-symbols-outlined text-[20px]">chat</span>
       </div>
       <p class="text-xs sm:text-sm text-slate-600 leading-relaxed text-center sm:text-left">
-        <strong class="text-slate-900 font-semibold">Have a unique requirement or tight initial budget?</strong>
+        <strong class="text-slate-950 font-semibold">Have a unique requirement or tight initial budget?</strong>
         Send us a quick message with your project goals, and we will configure a custom deliverable package for you.
       </p>
     </div>

@@ -5,33 +5,33 @@ import { siteConfig } from '../data/pageContent';
 <!-- Sticky Floating Quick-Contact Widget -->
 <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-auto">
   <!-- Interactive Prompt Tooltip -->
-  <div id="floating-tooltip" class="hidden sm:flex items-center gap-2 bg-slate-900 text-white text-xs font-medium py-2 px-3.5 rounded-xl shadow-xl border border-slate-700/80 animate-bounce">
-    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+  <div id="floating-tooltip" class="hidden sm:flex items-center gap-2 bg-slate-900 text-white text-xs font-medium py-2.5 px-4 rounded-2xl shadow-2xl border border-slate-700 animate-bounce">
+    <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
     <span>Have a project in mind? Chat with us!</span>
-    <button id="close-tooltip" class="text-slate-400 hover:text-white ml-1 font-bold">&times;</button>
+    <button id="close-tooltip" class="text-slate-400 hover:text-white ml-2 font-bold cursor-pointer text-sm">&times;</button>
   </div>
 
   <div class="flex items-center gap-2.5">
     <!-- Call Quick Action -->
     <a
       href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, '')}`}
-      class="w-12 h-12 rounded-full bg-slate-900 border border-slate-700 text-white hover:bg-slate-800 shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+      class="w-12 h-12 rounded-full bg-slate-900 border border-slate-700 text-white hover:bg-slate-800 hover:border-sky-400/50 shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 group"
       aria-label="Call Us Directly"
       title="Call Us Directly"
     >
-      <span class="material-symbols-outlined text-[20px] text-emerald-400 group-hover:rotate-12 transition-transform">call</span>
+      <span class="material-symbols-outlined text-[20px] text-sky-400 group-hover:rotate-12 transition-transform">call</span>
     </a>
 
-    <!-- WhatsApp Quick Action with Glow -->
+    <!-- WhatsApp Quick Action -->
     <a
       href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
       target="_blank"
       rel="noopener noreferrer"
-      class="relative w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-2xl shadow-emerald-500/50 flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+      class="relative w-14 h-14 rounded-full bg-sky-600 hover:bg-sky-500 text-white border border-sky-400/40 shadow-2xl shadow-sky-950/40 flex items-center justify-center transition-all duration-300 hover:scale-110 group"
       aria-label="Instant WhatsApp Chat"
       title="Chat with an Engineer on WhatsApp"
     >
-      <span class="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-25"></span>
+      <span class="absolute inset-0 rounded-full bg-sky-400 animate-ping opacity-25"></span>
       <span class="material-symbols-outlined text-[28px] relative z-10 group-hover:scale-105 transition-transform">chat</span>
     </a>
   </div>

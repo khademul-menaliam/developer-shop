@@ -26,11 +26,11 @@ const featuredProjects = portfolioItems.filter(p => p.featured).slice(0, 3);
   <!-- 2. Trust Stats Numbers Bar -->
   <StatsCounter />
 
-  <!-- 3. Core Capabilities / Services Preview (Riseup Labs & Nextzen style) -->
+  <!-- 3. Core Capabilities / Services Preview -->
   <section class="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full" id="services">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
       <div>
-        <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-700 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200">
           Core Capabilities
         </span>
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-2">
@@ -43,7 +43,7 @@ const featuredProjects = portfolioItems.filter(p => p.featured).slice(0, 3);
         </p>
         <a
           href="/services"
-          class="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2 rounded-xl transition-colors whitespace-nowrap border border-emerald-200/80"
+          class="inline-flex items-center gap-1 text-xs font-bold text-sky-700 hover:text-sky-900 bg-sky-50 hover:bg-sky-100 px-4 py-2 rounded-xl transition-colors whitespace-nowrap border border-sky-200"
         >
           <span>All 6 Services</span>
           <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -60,11 +60,11 @@ const featuredProjects = portfolioItems.filter(p => p.featured).slice(0, 3);
   </section>
 
   <!-- 4. Featured Project Portfolio (Case Studies Showcase) -->
-  <section class="py-20 lg:py-24 bg-slate-100/70 px-4 sm:px-6 lg:px-8 border-y border-slate-200/80">
+  <section class="py-20 lg:py-24 bg-slate-50/80 px-4 sm:px-6 lg:px-8 border-y border-slate-200/80">
     <div class="max-w-7xl mx-auto flex flex-col gap-12">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-700 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200">
             Case Studies
           </span>
           <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-2">
@@ -73,10 +73,10 @@ const featuredProjects = portfolioItems.filter(p => p.featured).slice(0, 3);
         </div>
         <a
           href="/portfolio"
-          class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-800 hover:text-emerald-600 bg-white hover:bg-slate-50 px-4 py-2.5 rounded-xl border border-slate-200 transition-all shadow-xs"
+          class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-700 hover:text-sky-900 bg-white hover:bg-sky-50 px-4 py-2.5 rounded-xl border border-slate-200 hover:border-sky-300 transition-all shadow-xs"
         >
           <span>View All Case Studies</span>
-          <span class="material-symbols-outlined text-[16px] text-emerald-600">arrow_forward</span>
+          <span class="material-symbols-outlined text-[16px] text-sky-600">arrow_forward</span>
         </a>
       </div>
 
@@ -95,10 +95,10 @@ const featuredProjects = portfolioItems.filter(p => p.featured).slice(0, 3);
   <MethodologySection />
 
   <!-- 7. Verified Client Testimonials (Social Proof) -->
-  <section class="py-20 lg:py-24 bg-slate-100/70 px-4 sm:px-6 lg:px-8 border-t border-slate-200/80">
+  <section class="py-20 lg:py-24 bg-slate-50/80 px-4 sm:px-6 lg:px-8 border-t border-slate-200/80">
     <div class="max-w-7xl mx-auto flex flex-col gap-12">
       <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
-        <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full w-fit mx-auto border border-emerald-200">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-700 bg-sky-50 px-3.5 py-1 rounded-full w-fit mx-auto border border-sky-200">
           Client Feedback
         </span>
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
@@ -120,7 +120,7 @@ const featuredProjects = portfolioItems.filter(p => p.featured).slice(0, 3);
   <!-- 8. Frequently Asked Questions (Accordion) -->
   <section class="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
     <div class="text-center max-w-2xl mx-auto mb-12 flex flex-col gap-2">
-      <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full w-fit mx-auto border border-emerald-200">
+      <span class="text-xs font-bold uppercase tracking-widest text-sky-700 bg-sky-50 px-3.5 py-1 rounded-full w-fit mx-auto border border-sky-200">
         Got Questions?
       </span>
       <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
@@ -133,14 +133,14 @@ const featuredProjects = portfolioItems.filter(p => p.featured).slice(0, 3);
 
     <div class="space-y-4">
       {faqs.map((faq) => (
-        <details class="group bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 transition-all duration-300 open:shadow-xl open:border-emerald-500/50">
+        <details class="group bg-white border border-slate-200 rounded-3xl p-6 sm:p-7 transition-all duration-300 open:shadow-xl open:border-sky-500">
           <summary class="flex items-center justify-between cursor-pointer list-none text-slate-900 font-bold text-base sm:text-lg">
             <span>{faq.question}</span>
-            <span class="w-9 h-9 rounded-full bg-slate-100 group-open:bg-emerald-50 text-slate-500 group-open:text-emerald-600 flex items-center justify-center shrink-0 ml-4 transition-transform duration-300 group-open:rotate-180">
+            <span class="w-9 h-9 rounded-full bg-slate-100 group-open:bg-sky-600 text-slate-500 group-open:text-white flex items-center justify-center shrink-0 ml-4 transition-all duration-300 group-open:rotate-180">
               <span class="material-symbols-outlined text-[20px]">expand_more</span>
             </span>
           </summary>
-          <div class="pt-4 mt-3 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">
+          <div class="pt-4 mt-3 border-t border-slate-100 text-sm text-slate-600 leading-relaxed font-normal">
             {faq.answer}
           </div>
         </details>
@@ -150,18 +150,17 @@ const featuredProjects = portfolioItems.filter(p => p.featured).slice(0, 3);
 
   <!-- 9. Quick Inquiry / Booking Section -->
   <section class="py-20 lg:py-24 bg-slate-950 text-white px-4 sm:px-6 lg:px-8 relative overflow-hidden" id="inquire">
-    <div class="absolute -right-20 -bottom-20 w-[30rem] h-[30rem] bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute left-10 top-10 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -right-20 -bottom-20 w-[30rem] h-[30rem] bg-sky-500/[0.08] rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-4xl mx-auto flex flex-col gap-10 relative z-10">
       <div class="text-center max-w-xl mx-auto">
-        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/60 px-3.5 py-1.5 rounded-full border border-emerald-500/30">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-300 bg-sky-950/80 px-3.5 py-1.5 rounded-full border border-sky-500/30">
           Get In Touch
         </span>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mt-3">
           Let's Build Something Exceptional
         </h2>
-        <p class="text-sm text-slate-300 mt-3">
+        <p class="text-sm text-slate-400 mt-3 font-normal">
           Tell us about your organization's goals, features, or timeline. We will review your requirements and respond within 2 hours.
         </p>
       </div>
