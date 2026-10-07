@@ -1,5 +1,6 @@
 ---
 import { services } from '../data/services';
+import { siteConfig } from '../data/pageContent';
 
 interface Props {
   selectedService?: string;
@@ -10,43 +11,46 @@ interface Props {
 const { selectedService = "", selectedPlan = "", isCompact = false } = Astro.props;
 ---
 
-<div class="w-full bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-sm">
-  <form id="inquiry-form" class="flex flex-col gap-5">
+<div class="w-full bg-white border border-slate-200/90 rounded-3xl p-7 sm:p-10 shadow-xl">
+  <form id="inquiry-form" class="flex flex-col gap-6">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
       <!-- Full Name -->
-      <div class="flex flex-col gap-1.5">
-        <label for="customer_name" class="text-xs font-bold text-slate-900">
-          Full Name <span class="text-emerald-500">*</span>
+      <div class="flex flex-col gap-2">
+        <label for="customer_name" class="text-xs font-bold text-slate-900 flex items-center justify-between">
+          <span>Full Name</span>
+          <span class="text-emerald-600 font-semibold text-[11px]">* Required</span>
         </label>
         <input
           id="customer_name"
           name="customer_name"
           type="text"
           required
-          placeholder="e.g. John Doe"
-          class="w-full px-4 h-11 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+          placeholder="e.g. Tariq Chowdhury"
+          class="w-full px-4 h-12 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all"
         />
       </div>
 
       <!-- Email Address -->
-      <div class="flex flex-col gap-1.5">
-        <label for="email" class="text-xs font-bold text-slate-900">
-          Work Email <span class="text-emerald-500">*</span>
+      <div class="flex flex-col gap-2">
+        <label for="email" class="text-xs font-bold text-slate-900 flex items-center justify-between">
+          <span>Work Email</span>
+          <span class="text-emerald-600 font-semibold text-[11px]">* Required</span>
         </label>
         <input
           id="email"
           name="email"
           type="email"
           required
-          placeholder="e.g. john@enterprise.com"
-          class="w-full px-4 h-11 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+          placeholder="e.g. tariq@company.com"
+          class="w-full px-4 h-12 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all"
         />
       </div>
 
       <!-- Phone Number -->
-      <div class="flex flex-col gap-1.5">
-        <label for="phone" class="text-xs font-bold text-slate-900">
-          Phone / WhatsApp Number <span class="text-emerald-500">*</span>
+      <div class="flex flex-col gap-2">
+        <label for="phone" class="text-xs font-bold text-slate-900 flex items-center justify-between">
+          <span>Phone / WhatsApp</span>
+          <span class="text-emerald-600 font-semibold text-[11px]">* Required</span>
         </label>
         <input
           id="phone"
@@ -54,98 +58,114 @@ const { selectedService = "", selectedPlan = "", isCompact = false } = Astro.pro
           type="tel"
           required
           placeholder="e.g. +880 1711-000000"
-          class="w-full px-4 h-11 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+          class="w-full px-4 h-12 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all"
         />
       </div>
 
       <!-- Service Selection -->
-      <div class="flex flex-col gap-1.5">
+      <div class="flex flex-col gap-2">
         <label for="service_id" class="text-xs font-bold text-slate-900">
           Requested Service Area
         </label>
         <select
           id="service_id"
           name="service_id"
-          class="w-full px-4 h-11 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+          class="w-full px-4 h-12 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all"
         >
-          <option value="">-- Select a Service --</option>
+          <option value="">-- Select a Service Category --</option>
           {services.map(s => (
             <option value={s.id} selected={selectedService === s.title || selectedService === s.slug}>
               {s.title}
             </option>
           ))}
-          <option value="custom" selected={selectedPlan.length > 0}>General Consultation / Custom Scope</option>
+          <option value="custom" selected={selectedPlan.length > 0}>General Consultation / Custom Project</option>
         </select>
       </div>
 
       <!-- Preferred Start Date -->
-      <div class="flex flex-col gap-1.5">
+      <div class="flex flex-col gap-2">
         <label for="preferred_date" class="text-xs font-bold text-slate-900">
-          Target Launch Date
+          Target Launch Timeline
         </label>
         <input
           id="preferred_date"
           name="preferred_date"
           type="date"
-          class="w-full px-4 h-11 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+          class="w-full px-4 h-12 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all"
         />
       </div>
 
       <!-- Target Budget Range -->
-      <div class="flex flex-col gap-1.5">
+      <div class="flex flex-col gap-2">
         <label for="budget" class="text-xs font-bold text-slate-900">
-          Target Budget
+          Estimated Budget Range
         </label>
         <select
           id="budget"
           name="budget"
-          class="w-full px-4 h-11 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+          class="w-full px-4 h-12 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all"
         >
-          <option value="Flexible">Flexible / Discuss on Call</option>
-          <option value="Under $500">Under $500 (Starter / Portfolio)</option>
-          <option value="$500 - $1,500">$500 - $1,500 (Business Website)</option>
-          <option value="$1,500 - $3,000">$1,500 - $3,000 (Web Platform / Mobile)</option>
-          <option value="$3,000+">$3,000+ (Custom Enterprise Platform)</option>
+          <option value="Flexible">Flexible / Open to Technical Recommendations</option>
+          <option value="Under $500">Under $500 (Starter / Fast Portfolio)</option>
+          <option value="$500 - $1,500">$500 - $1,500 (Business Website / Catalog)</option>
+          <option value="$1,500 - $3,000">$1,500 - $3,000 (Custom Web App / Mobile App)</option>
+          <option value="$3,000+">$3,000+ (Enterprise Cloud Platform)</option>
         </select>
       </div>
     </div>
 
     <!-- Message / Project Scope -->
-    <div class="flex flex-col gap-1.5">
-      <label for="message" class="text-xs font-bold text-slate-900">
-        Project Scope & Requirements <span class="text-emerald-500">*</span>
+    <div class="flex flex-col gap-2">
+      <label for="message" class="text-xs font-bold text-slate-900 flex items-center justify-between">
+        <span>Project Scope & Goals</span>
+        <span class="text-emerald-600 font-semibold text-[11px]">* Required</span>
       </label>
       <textarea
         id="message"
         name="message"
         rows="4"
         required
-        placeholder="Briefly describe your goals, required pages, features, or timeline..."
-        class="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+        placeholder="Briefly describe your business, features needed, design inspiration, or target launch date..."
+        class="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all"
       ></textarea>
     </div>
 
     <!-- Submit Button & Feedback -->
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-      <p class="text-xs text-slate-500 flex items-center gap-1.5">
-        <span class="material-symbols-outlined text-[16px] text-emerald-500">lock</span>
-        <span>Your data is strictly confidential. Direct response in &lt; 2 hrs.</span>
-      </p>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 border-t border-slate-100">
+      <div class="flex items-center gap-2 text-xs text-slate-500">
+        <span class="material-symbols-outlined text-[18px] text-emerald-500">lock</span>
+        <span>Strict confidentiality guarantee • Response in &lt; 2 business hours</span>
+      </div>
 
-      <button
-        type="submit"
-        id="submit-btn"
-        class="w-full sm:w-auto px-8 h-12 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-bold rounded-xl transition-all duration-200 shadow-md shadow-emerald-500/20 hover:scale-[1.02] flex items-center justify-center gap-2"
-      >
-        <span class="material-symbols-outlined text-[18px]">send</span>
-        <span>Submit Inquiry</span>
-      </button>
+      <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+        <a
+          href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 border border-slate-300 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 px-5 h-12 rounded-xl text-xs font-bold transition-all"
+        >
+          <span class="material-symbols-outlined text-[18px]">chat</span>
+          <span>WhatsApp Us</span>
+        </a>
+
+        <button
+          type="submit"
+          id="submit-btn"
+          class="flex-1 sm:flex-initial px-8 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white text-sm font-bold rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/25 hover:scale-[1.02] flex items-center justify-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[18px]">send</span>
+          <span>Send Free Inquiry</span>
+        </button>
+      </div>
     </div>
 
     <!-- Success Message Box -->
-    <div id="form-success" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium flex items-center gap-2 mt-2">
-      <span class="material-symbols-outlined text-[20px] text-emerald-600">check_circle</span>
-      <span>Thank you! Your inquiry has been received. Our lead developer will reach out to you shortly.</span>
+    <div id="form-success" class="hidden p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm font-medium flex items-center gap-3 mt-2">
+      <span class="material-symbols-outlined text-[24px] text-emerald-600 shrink-0">check_circle</span>
+      <div>
+        <p class="font-bold">Thank you! Your inquiry has been safely received.</p>
+        <p class="text-xs text-emerald-700 mt-0.5">Our senior technical consultant will contact you within 2 hours with an initial estimation.</p>
+      </div>
     </div>
   </form>
 </div>
@@ -168,8 +188,9 @@ const { selectedService = "", selectedPlan = "", isCompact = false } = Astro.pro
       setTimeout(() => {
         if (successBox) successBox.classList.remove('hidden');
         if (submitBtn) {
-          submitBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span> Received!';
-          submitBtn.classList.replace('bg-emerald-500', 'bg-slate-800');
+          submitBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span> Inquiry Sent!';
+          submitBtn.classList.replace('from-emerald-500', 'from-slate-800');
+          submitBtn.classList.replace('to-teal-500', 'to-slate-800');
         }
         form.reset();
       }, 600);

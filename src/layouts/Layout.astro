@@ -3,6 +3,7 @@ import '../styles/global.css';
 import SEO from '../components/SEO.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import FloatingContact from '../components/FloatingContact.astro';
 
 interface Props {
   title?: string;
@@ -24,9 +25,12 @@ const { title, description, image, type } = Astro.props;
     <Navbar />
 
     <!-- Main Content -->
-    <main class="flex-1 w-full pt-20">
+    <main class="flex-1 w-full pt-28 sm:pt-32">
       <slot />
     </main>
+
+    <!-- Floating Quick-Contact Widget -->
+    <FloatingContact />
 
     <!-- Footer -->
     <Footer />

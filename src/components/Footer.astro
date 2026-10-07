@@ -5,55 +5,61 @@ import { services } from '../data/services';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="w-full bg-[#0F172A] text-slate-300 border-t border-slate-800 pt-16 pb-12">
+<footer class="w-full bg-[#0B1120] text-slate-300 border-t border-slate-800/80 pt-16 pb-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-14">
       <!-- Brand & Mission Column (2 Cols) -->
-      <div class="lg:col-span-2 flex flex-col space-y-4">
-        <a href="/" class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
-            <span class="material-symbols-outlined text-[20px]">terminal</span>
+      <div class="lg:col-span-2 flex flex-col space-y-5">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400/20 to-teal-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shadow-md">
+            <span class="material-symbols-outlined text-[24px]">terminal</span>
           </div>
-          <span class="text-xl font-bold tracking-tight text-white">{siteConfig.name}</span>
+          <div class="flex flex-col">
+            <span class="text-xl font-extrabold tracking-tight text-white">{siteConfig.name}</span>
+            <span class="text-xs text-slate-400">Software & Digital Systems</span>
+          </div>
         </a>
-        <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
           {siteConfig.description}
         </p>
-        <div class="flex items-center gap-2 text-xs text-emerald-400 font-medium pt-1">
+        <div class="flex items-center gap-2 text-xs text-emerald-400 font-medium">
           <span class="material-symbols-outlined text-[16px]">location_on</span>
           <span>{siteConfig.location}</span>
         </div>
         <div class="flex items-center gap-3 pt-2">
           <a
-            href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^0-9]/g, '')}`}
+            href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 hover:border-emerald-500 hover:text-emerald-400 flex items-center justify-center text-slate-300 transition-colors"
+            class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500 hover:text-emerald-400 flex items-center justify-center text-slate-300 transition-all hover:scale-105"
             aria-label="WhatsApp"
+            title="WhatsApp"
           >
-            <span class="material-symbols-outlined text-[18px]">chat</span>
+            <span class="material-symbols-outlined text-[20px]">chat</span>
           </a>
           <a
             href={`mailto:${siteConfig.email}`}
-            class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 hover:border-emerald-500 hover:text-emerald-400 flex items-center justify-center text-slate-300 transition-colors"
+            class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500 hover:text-emerald-400 flex items-center justify-center text-slate-300 transition-all hover:scale-105"
             aria-label="Email"
+            title="Email"
           >
-            <span class="material-symbols-outlined text-[18px]">mail</span>
+            <span class="material-symbols-outlined text-[20px]">mail</span>
           </a>
           <a
             href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, '')}`}
-            class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 hover:border-emerald-500 hover:text-emerald-400 flex items-center justify-center text-slate-300 transition-colors"
+            class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500 hover:text-emerald-400 flex items-center justify-center text-slate-300 transition-all hover:scale-105"
             aria-label="Phone"
+            title="Phone"
           >
-            <span class="material-symbols-outlined text-[18px]">call</span>
+            <span class="material-symbols-outlined text-[20px]">call</span>
           </a>
         </div>
       </div>
 
       <!-- Services Column -->
       <div class="flex flex-col space-y-3">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Capabilities</h4>
-        <ul class="space-y-2 text-sm text-slate-400">
+        <h4 class="text-xs font-extrabold uppercase tracking-widest text-white">Capabilities</h4>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-400">
           {services.slice(0, 5).map(service => (
             <li>
               <a href={`/services/${service.slug}`} class="hover:text-emerald-400 transition-colors">
@@ -62,8 +68,8 @@ const currentYear = new Date().getFullYear();
             </li>
           ))}
           <li>
-            <a href="/services" class="text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs font-semibold pt-1">
-              View All Capabilities &rarr;
+            <a href="/services" class="text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs font-bold pt-1">
+              View All 6 Capabilities &rarr;
             </a>
           </li>
         </ul>
@@ -71,32 +77,40 @@ const currentYear = new Date().getFullYear();
 
       <!-- Navigation & Company -->
       <div class="flex flex-col space-y-3">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Explore</h4>
-        <ul class="space-y-2 text-sm text-slate-400">
+        <h4 class="text-xs font-extrabold uppercase tracking-widest text-white">Quick Links</h4>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-400">
           <li><a href="/about" class="hover:text-emerald-400 transition-colors">About Millennium</a></li>
-          <li><a href="/portfolio" class="hover:text-emerald-400 transition-colors">Featured Projects</a></li>
-          <li><a href="/contact" class="hover:text-emerald-400 transition-colors">Direct Contact</a></li>
-          <li><a href="/booking" class="hover:text-emerald-400 transition-colors">Service Inquiry</a></li>
-          <li><a href="/admin/login" class="hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-300"><span class="material-symbols-outlined text-[14px]">lock</span> Admin Portal</a></li>
+          <li><a href="/portfolio" class="hover:text-emerald-400 transition-colors">Case Studies</a></li>
+          <li><a href="/#pricing" class="hover:text-emerald-400 transition-colors">Pricing & Plans</a></li>
+          <li><a href="/#process" class="hover:text-emerald-400 transition-colors">Our Process</a></li>
+          <li><a href="/contact" class="hover:text-emerald-400 transition-colors">Contact Us</a></li>
+          <li><a href="/booking" class="hover:text-emerald-400 transition-colors text-emerald-400 font-semibold">Free Consultation</a></li>
+          <li><a href="/admin/login" class="hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-300 pt-1"><span class="material-symbols-outlined text-[14px]">lock</span> Admin Portal</a></li>
         </ul>
       </div>
 
       <!-- Direct Contact Column -->
       <div class="flex flex-col space-y-3">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Get In Touch</h4>
-        <div class="space-y-2 text-sm text-slate-400">
-          <p class="text-xs text-slate-500 font-semibold uppercase">Direct Telephone</p>
-          <a href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, '')}`} class="text-white font-medium hover:text-emerald-400 transition-colors block">
-            {siteConfig.phoneDisplay}
-          </a>
+        <h4 class="text-xs font-extrabold uppercase tracking-widest text-white">Direct Contact</h4>
+        <div class="space-y-3 text-xs sm:text-sm text-slate-400">
+          <div>
+            <p class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Direct Telephone</p>
+            <a href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, '')}`} class="text-white font-bold hover:text-emerald-400 transition-colors block mt-0.5">
+              {siteConfig.phoneDisplay}
+            </a>
+          </div>
 
-          <p class="text-xs text-slate-500 font-semibold uppercase pt-2">Email Inquiries</p>
-          <a href={`mailto:${siteConfig.email}`} class="text-slate-300 hover:text-emerald-400 transition-colors block">
-            {siteConfig.email}
-          </a>
+          <div>
+            <p class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Email Inquiries</p>
+            <a href={`mailto:${siteConfig.email}`} class="text-slate-300 hover:text-emerald-400 transition-colors block mt-0.5">
+              {siteConfig.email}
+            </a>
+          </div>
 
-          <p class="text-xs text-slate-500 font-semibold uppercase pt-2">Hours of Operation</p>
-          <p class="text-xs text-slate-400">{siteConfig.workingHours}</p>
+          <div>
+            <p class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Hours of Operation</p>
+            <p class="text-xs text-slate-400 mt-0.5">{siteConfig.workingHours}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -104,13 +118,13 @@ const currentYear = new Date().getFullYear();
     <!-- Bottom Bar -->
     <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
       <div>
-        &copy; {currentYear} {siteConfig.name}. All rights reserved. Professional craftsmanship for modern web.
+        &copy; {currentYear} {siteConfig.name}. All rights reserved. High-performance software engineering.
       </div>
       <div class="flex items-center gap-6">
         <a href="/privacy" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
         <a href="/terms" class="hover:text-slate-300 transition-colors">Terms of Service</a>
-        <span class="text-slate-600">•</span>
-        <span class="text-slate-400">License #123456</span>
+        <span class="text-slate-700">•</span>
+        <span class="text-slate-400">Dhaka, Bangladesh</span>
       </div>
     </div>
   </div>

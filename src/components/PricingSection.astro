@@ -2,14 +2,14 @@
 import { siteConfig } from '../data/pageContent';
 ---
 
-<section class="w-full bg-slate-50 py-20 px-4 sm:px-6 lg:px-8 border-y border-slate-200/80">
+<section class="w-full bg-slate-50 py-20 px-4 sm:px-6 lg:px-8 border-y border-slate-200/80" id="pricing">
   <div class="max-w-7xl mx-auto flex flex-col gap-12">
     <!-- Section Heading -->
     <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
-      <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">
+      <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full w-fit mx-auto border border-emerald-200">
         Accessible & Flexible
       </span>
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
         Transparent & Budget-Friendly Plans
       </h2>
       <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -20,7 +20,7 @@ import { siteConfig } from '../data/pageContent';
     <!-- Pricing 3-Column Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
       <!-- Tier 1: Solo Portfolio ($0/mo) -->
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-200 hover:-translate-y-1">
+      <div class="bg-white rounded-3xl border border-slate-200/90 p-7 sm:p-8 shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
         <div class="flex flex-col gap-5">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Entry Level</span>
@@ -73,8 +73,8 @@ import { siteConfig } from '../data/pageContent';
       </div>
 
       <!-- Tier 2: Small Business & Growth (Featured: Name Your Budget) -->
-      <div class="bg-white rounded-2xl border-2 border-emerald-500 p-6 sm:p-7 shadow-lg flex flex-col justify-between relative hover:shadow-xl transition-all duration-200 hover:-translate-y-1">
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-[11px] font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full shadow-md">
+      <div class="bg-white rounded-3xl border-2 border-emerald-500 p-7 sm:p-8 shadow-xl flex flex-col justify-between relative hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[11px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full shadow-md">
           Most Flexible
         </div>
 
@@ -132,7 +132,7 @@ import { siteConfig } from '../data/pageContent';
       </div>
 
       <!-- Tier 3: Industrial & Mobile Apps (Custom Quote) -->
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-200 hover:-translate-y-1">
+      <div class="bg-white rounded-3xl border border-slate-200/90 p-7 sm:p-8 shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
         <div class="flex flex-col gap-5">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Enterprise</span>
