@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # Security cleanup utility
 clean-branch.*
+.vscode/
